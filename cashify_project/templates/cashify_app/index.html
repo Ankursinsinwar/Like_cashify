@@ -1,0 +1,31 @@
+{% extends 'cashify_app/base.html' %}
+
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+{% block title %}Cashify{% endblock %}
+
+{% block content %}
+
+<div class="cards">
+    {% for device in devices %}
+    <div class="card" style="width: 18rem;">
+        {% if device.image %}
+        <img src="{{ device.image.url }}" class="card-img-top" alt="{{ device.device_name }}">
+        {% else %}
+        <img src="{% static 'img/default_device.jpg' %}" class="card-img-top" alt="{{ device.device_name }}">
+        {% endif %}
+        <div class="card-body" id="card-body">
+            <hr>
+            <h5 class="card-title">{{ device.device_name }}</h5>
+            <p class="card-text">{{ device.brand }} {{ device.model }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">₹{{ device.estimated_price }} INR</li>
+        </ul>
+        <div class="card-body">
+            <a href="{% url 'add_to_list' device.id %}" class="card-link">Add to list</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

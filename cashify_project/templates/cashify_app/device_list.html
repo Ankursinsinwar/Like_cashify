@@ -1,0 +1,39 @@
+{% extends 'cashify_app/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% block title %}Your Device List{% endblock %}
+
+{% block content %}
+<div class="cards">
+    {% for device_list_item in user_devices %}
+    <div class="card" style="width: 18rem;">
+        {% if device_list_item.device.image %}
+        <img src="{{ device_list_item.device.image.url }}" class="card-img-top" alt="{{ device_list_item.device.device_name }}">
+        {% else %}
+        <img src="{% static 'img/default_device.jpg' %}" class="card-img-top" alt="{{ device_list_item.device.device_name }}">
+        {% endif %}
+        <div class="card-body" id="card-body">
+            <hr>
+            <h5 class="card-title">{{ device_list_item.device.device_name }}</h5>
+            <p class="card-text">{{ device_list_item.device.brand }} {{ device_list_item.device.model }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">₹{{ device_list_item.device.estimated_price }} INR</li>
+        </ul>
+        <div class="card-body">
+            <a href="{% url 'remove_from_list' device_list_item.device.id %}" class="card-link">Remove</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% if user_devices %}
+    <div class="mt-4">
+        <h4>Total Estimated Price: ₹{{ total_estimated_price }} INR</h4>
+        <a href="{% url 'make_payment' %}" class="btn btn-primary">Make Payment</a>
+    </div>
+{% else %}
+    <p>No device added.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Add something to cart</a>
+{% endif %}
+{% endblock %}

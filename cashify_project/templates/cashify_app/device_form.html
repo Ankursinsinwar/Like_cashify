@@ -1,0 +1,98 @@
+{% extends 'cashify_app/base.html' %}
+{% load static %}
+
+{% block title %}Add New Device{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Add New Device</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_device_name">Device Name</label>
+            <input type="text" class="form-control" id="id_device_name" name="device_name" value="{{ form.device_name.value|default_if_none:'' }}">
+            {% if form.device_name.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.device_name.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_brand">Brand</label>
+            <input type="text" class="form-control" id="id_brand" name="brand" value="{{ form.brand.value|default_if_none:'' }}">
+            {% if form.brand.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.brand.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_model">Model</label>
+            <input type="text" class="form-control" id="id_model" name="model" value="{{ form.model.value|default_if_none:'' }}">
+            {% if form.model.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.model.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_condition">Condition</label>
+            <input type="text" class="form-control" id="id_condition" name="condition" value="{{ form.condition.value|default_if_none:'' }}">
+            {% if form.condition.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.condition.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_accessories">Accessories</label>
+            <input type="text" class="form-control" id="id_accessories" name="accessories" value="{{ form.accessories.value|default_if_none:'' }}">
+            {% if form.accessories.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.accessories.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_estimated_price">Estimated Price</label>
+            <input type="number" class="form-control" id="id_estimated_price" name="estimated_price" value="{{ form.estimated_price.value|default_if_none:'' }}">
+            {% if form.estimated_price.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.estimated_price.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_status">Status</label>
+            <select class="form-control" id="id_status" name="status">
+                {% for value, label in form.status.field.choices %}
+                    <option value="{{ value }}" {% if form.status.value == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            {% if form.status.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.status.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_image">Image</label>
+            <input type="file" class="form-control-file" id="id_image" name="image">
+            {% if form.image.errors %}
+            <div class="alert alert-danger mt-2">
+                {{ form.image.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Add Device</button>
+    </form>
+</div>
+{% endblock %}

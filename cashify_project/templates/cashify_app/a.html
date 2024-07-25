@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cashify{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+</head>
+<style>
+    .cards {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .card img {
+        height: 286px;
+        width: fit-content;
+
+    }
+
+    #card-body {
+        height: 200px;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'home' %}">Cashify</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'device_list' %}">Devices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'transactions' %}">Transactions</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">{{ user.username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="cards">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'img/samsung.jpeg' %}" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body">
+                <hr>
+                <h5 class="card-title">Samsung Galaxy S24 Ultra</h5>
+                <p class="card-text">AI Smartphone (Titanium Gray, 12GB, 512GB Storage).</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">₹139,999.00 INR</li>
+                <!-- <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li> -->
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Add to list</a>
+            </div>        
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'img/iphone14-202209_FMT_WHH.jpeg' %}" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body">
+                <hr>
+                <h5 class="card-title">Apple iPhone 14 </h5>
+                <p class="card-text">Apple iPhone 14 (256 GB) - Blue.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">₹ 72,200.00 INR</li>
+                <!-- <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li> -->
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Add to list</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'img/oppo.webp' %}" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body">
+                <hr>
+                <h5 class="card-title">oppo A 18</h5>
+                <p class="card-text">(Glowing Black, 4GB RAM, 64GB Storage) | 6.56" HD 90Hz Waterdrop Display | 5000 mAh
+                    Battery.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">₹8,999.00 INR</li>
+                <!-- <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li> -->
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Add to list</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'img/Motorola-Razr-40.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body">
+                <hr>
+                <h5 class="card-title">Motorola Razr 40</h5>
+                <p class="card-text"> (Summer Lilac, 8GB RAM, 256GB Storage).</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">₹44,998.00 INR</li>
+                <!-- <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li> -->
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Add to list</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">&copy; 2024 Cashify</span>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

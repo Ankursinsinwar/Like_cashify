@@ -1,0 +1,12 @@
+{% extends 'cashify_app/base.html' %}
+
+{% block title %}Create Device{% endblock %}
+
+{% block content %}
+<h2>Create Device</h2>
+<form method="post" class="form-group">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+{% endblock %}

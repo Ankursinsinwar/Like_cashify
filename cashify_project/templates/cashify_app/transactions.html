@@ -1,0 +1,22 @@
+{% extends 'cashify_app/base.html' %}
+
+{% block title %}Transactions{% endblock %}
+
+{% block content %}
+<h2>Transactions</h2>
+{% if has_transactions %}
+    <ul class="list-group">
+        {% for transaction in transactions %}
+        <li class="list-group-item">
+            <p>Device: {{ transaction.device.device_name }}</p>
+            <p>Amount: {{ transaction.transaction_amount }}</p>
+            <p>Date: {{ transaction.transaction_date }}</p>
+            <p>Payment Method: {{ transaction.payment_method }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No transactions found.</p>
+    <a href="{% url 'device_list' %}" class="btn btn-primary">Add something to cart</a>
+{% endif %}
+{% endblock %}
