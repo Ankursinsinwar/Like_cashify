@@ -6,10 +6,10 @@ a simple mobile selling e-commerce website, (it was hard to find a name so I tak
 ![Screenshot 2024-07-23 152443](https://github.com/user-attachments/assets/859ba816-85b0-4131-91c3-60fb083c6463)
 
 
-## Login & registration
+## Login 
 
-![Screenshot 2024-07-23 144426](https://github.com/user-attachments/assets/fb347e1b-d905-41a3-b9eb-fbcab97a6100)
-![Screenshot 2024-07-23 144229](https://github.com/user-attachments/assets/8dee3cea-9102-4550-9cf5-7c47b6df0dea)
+![image](https://github.com/user-attachments/assets/3f86a87d-7bb8-49e6-aaa2-84305478ec4d)
+
 
 ## Device list ( cart )
 
