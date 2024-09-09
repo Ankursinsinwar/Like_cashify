@@ -87,15 +87,15 @@ WSGI_APPLICATION = 'cashify_project.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cashify',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-}
+         'default': {
+             'ENGINE': 'django.db.backends.mysql',
+             'NAME': 'cashify',
+             'USER': 'your_mysql_user',
+             'PASSWORD': 'your_mysql_password',
+             'HOST': '127.0.0.1',
+             'PORT': '3306',
+         }
+     }
 
 
 
