@@ -1,7 +1,7 @@
 
 # Cashify - Mobile Selling E-Commerce Website
 
-a simple mobile selling e-commerce website, (it was hard to find a name so I take cashify )
+a simple mobile selling e-commerce website
 
 ## Project Overview
 **Cashify** is a simple e-commerce platform designed for selling mobile phones. Users can browse available phones, add items to their cart, and proceed to checkout. The platform is built with a focus on user-friendly navigation and a smooth purchasing experience.
